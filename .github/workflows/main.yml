@@ -65,8 +65,8 @@ jobs:
       - name: Build & Upload image to ECR
         uses: vitr/actions-build-and-upload-to-ecs@master
         with:
-         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          account_id: "8006-9274-0044"
          registry: ${{ secrets.REGISTRY }}
          repo: devops
