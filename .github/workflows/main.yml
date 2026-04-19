@@ -67,7 +67,7 @@ jobs:
         with:
          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         account_id: "8006-9274-0044"
+         account_id: "800692740044"
          registry: ${{ secrets.REGISTRY }}
          repo: devops
          region: ${{ env.AWS_REGION }}
