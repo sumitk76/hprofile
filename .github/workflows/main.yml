@@ -1,7 +1,7 @@
 name: Hprofile Actions
 on: workflow_dispatch
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: us-east-1
 jobs:
   Testing:
     runs-on: ubuntu-latest
@@ -63,13 +63,14 @@ jobs:
           sed -i "s/db01/${{ secrets.RDS_ENDPOINT }}/" src/main/resources/application.properties
 
       - name: Build & Upload image to ECR
-        uses: appleboy/docker-ecr-action@master
+        uses: vitr/actions-build-and-upload-to-ecs@master
         with:
          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         account_id: "8006-9274-0044"
          registry: ${{ secrets.REGISTRY }}
          repo: devops
-         region: ${{ secrets.AWS_REGION }}
+         region: ${{ env.AWS_REGION }}
          tags: latest,${{ github.run_number }}
          daemon_off: false
          dockerfile: ./Dockerfile
